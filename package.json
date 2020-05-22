@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist/* && webpack",
+    "build": "npm i && rimraf dist/* && webpack",
     "start-dev": "webpack-dev-server --hot --env dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
