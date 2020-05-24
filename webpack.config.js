@@ -7,25 +7,27 @@ const path = require("path");
 module.exports = (env) => {
     const dev = env === "dev";
 
+    const fileName = (extension) => {
+        if (dev) {
+            return `[name].bundle.${extension}`;
+        }
+        return `[name].[contenthash].bundle.${extension}`;
+    };
+
     const jsTsLoaders = dev
         ? [{ loader: "babel-loader" }]
         : [{ loader: "babel-loader" }, "eslint-loader"];
 
     return {
         devtool: dev ? "eval-source-map" : "source-map",
-
         mode: dev ? "development" : "production",
         context: path.resolve(__dirname),
         entry: {
             app: "./src/boot.tsx",
         },
         output: {
-            filename: dev
-                ? "[name].bundle.js"
-                : "[name].[contenthash].bundle.js",
-            chunkFilename: dev
-                ? "[name].bundle.js"
-                : "[name].[contenthash].bundle.js",
+            filename: fileName("js"),
+            chunkFilename: fileName("js"),
             sourceMapFilename: "[file].map",
             path: path.resolve(__dirname, "dist"),
             publicPath: "/",
@@ -52,7 +54,10 @@ module.exports = (env) => {
             },
         },
         plugins: [
-            new MiniCssExtractPlugin(),
+            new MiniCssExtractPlugin({
+                filename: fileName("css"),
+                chunkFilename: fileName("css"),
+            }),
             new StylelintPlugin(),
             new HtmlWebpackPlugin({ template: "index.html" }),
         ],

@@ -1,17 +1,16 @@
 {
   "name": "react-typescript-webpack-sass-template",
-  "version": "1.0.0",
+  "description": "Opinionated and optimized template ready to start coding",
+  "author": "Júlio Cordeiro",
   "private": true,
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "npm i && rimraf dist/* && webpack",
-    "start-dev": "webpack-dev-server --hot --env dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
+  "scripts": {
+    "start-dev": "webpack-dev-server --hot --env dev",
+    "clean-dist": "rimraf dist/*",
+    "build-dev": "npm run clean-dist && webpack --env dev",
+    "build-prd": "npm run clean-dist && webpack",
+    "deploy": "npm run clean-dist && npm i && npm run build-prd"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
