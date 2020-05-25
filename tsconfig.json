@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "sourceMap": true,
-        "noImplicitAny": true,
+        "isolatedModules": true,
         "module": "commonjs",
         "target": "es6",
         "jsx": "react",
@@ -9,6 +9,9 @@
         "baseUrl": "./",
         "paths": {
             "@components/*": ["./src/components/*"],
-        }
+            "@resources/*": ["./src/resources/*"]
+        },
+        "noImplicitAny": true,
+        "strict": true
     }
 }

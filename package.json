@@ -9,7 +9,7 @@
     "clean-dist": "rimraf dist/*",
     "build-dev": "npm run clean-dist && webpack --env dev",
     "build-prd": "npm run clean-dist && webpack",
-    "deploy": "npm run clean-dist && npm i && npm run build-prd"
+    "deploy": "npm i && npm run build-prd"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -32,6 +32,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "react-hot-loader": "^4.12.21",
+    "react-svg-loader": "^3.0.3",
     "sass-loader": "^8.0.2",
     "source-map-loader": "^0.2.4",
     "stylelint": "^13.5.0",

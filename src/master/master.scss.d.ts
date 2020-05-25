@@ -2,6 +2,7 @@
 // Please do not change this file!
 declare namespace MasterScssNamespace {
     export interface IMasterScss {
+        icon: string;
         master: string;
     }
 }

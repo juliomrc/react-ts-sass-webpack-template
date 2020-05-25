@@ -37,6 +37,7 @@ module.exports = (env) => {
             alias: {
                 "react-dom": "@hot-loader/react-dom",
                 "@components": path.join(__dirname, "./src/components"),
+                "@resources": path.join(__dirname, "./src/resources"),
             },
         },
         optimization: {
@@ -94,6 +95,20 @@ module.exports = (env) => {
                             },
                         },
                         "sass-loader",
+                    ],
+                },
+                {
+                    test: /\.svg$/,
+                    use: [
+                        {
+                            loader: "babel-loader",
+                        },
+                        {
+                            loader: "react-svg-loader",
+                            options: {
+                                jsx: true,
+                            },
+                        },
                     ],
                 },
             ],
