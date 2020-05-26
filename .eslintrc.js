@@ -15,11 +15,11 @@ module.exports = {
         react: { version: "detect" },
     },
     ignorePatterns: ["*.d.ts", "./node_modules", "./dist"],
-
     extends: [
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
     ],
     rules: {
         semi: ["error", "always"],
@@ -28,5 +28,11 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": "off",
         "react/prop-types": "off",
         "react/no-unescaped-entities": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                endOfLine: "auto",
+            },
+        ],
     },
 };

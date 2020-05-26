@@ -18,14 +18,14 @@ Although I don't need to know everything that is underneeth my solution, I want 
 4.  Sass
     1.  Typings for styles
 5.  Linters + Formatter
-    1. ESLint + Stylelint + Prettier
+    1. Stylelint
+    2. Prettier integrated with ESLint
 
 ## TODO list:
 
 1. Fonts set up
-3. Removing sourceMap generation for libs
-4. [Pollyfills, loaded only for browsers that need them.](https://medium.com/hackernoon/polyfills-everything-you-ever-wanted-to-know-or-maybe-a-bit-less-7c8de164e423)
-5. Prettier combined with ESLint
+2. Removing sourceMap generation for libs
+3. [Pollyfills, loaded only for browsers that need them.](https://medium.com/hackernoon/polyfills-everything-you-ever-wanted-to-know-or-maybe-a-bit-less-7c8de164e423)
 
 ### React + Typescript
 
