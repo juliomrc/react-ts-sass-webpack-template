@@ -6,7 +6,7 @@ Although I don't need to know everything that is underneeth my solution, I want 
 
 ## Features
 
-1.  [React + Typescript](#react-+-typescript)
+1.  [React + Typescript](#react--typescript)
 2.  [Webpack](#webpack)
     1.  @aliases
     2.  Source maps
@@ -18,18 +18,17 @@ Although I don't need to know everything that is underneeth my solution, I want 
         1. Bigger libs in isolated webpack bundle
         2. PRD bundle caching
         3. Pollyfills loaded only when necessary
-3.  [Webpack dev server + Hot reload](#webpack-dev-server-+-hot-reload)
+3.  [Webpack dev server + Hot reload](#webpack-dev-server--hot-reload)
     1. Skipping some loaders for development build
 4.  [Sass](#sass)
     1.  Typings for styles
-5.  [Linters + Formatter](#linters-+-formatter)
+5.  [Linters + Formatter](#linters--formatter)
     1. Stylelint
     2. Prettier integrated with ESLint
 
 ## TODO List:
 
 -   README.md
--   favicon
 
 ---
 
