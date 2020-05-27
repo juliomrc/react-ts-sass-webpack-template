@@ -12,6 +12,11 @@ module.exports = (env) => {
     return {
         devtool: false,
         mode: dev ? "development" : "production",
+        devServer: {
+            historyApiFallback: {
+                index: "/index.html",
+            },
+        },
         context: path.resolve(__dirname),
         entry: {
             app: `webpack-polyfill-injector?${JSON.stringify({

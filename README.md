@@ -20,6 +20,7 @@ Although I don't need to know everything that is underneeth my solution, I want 
         3. Pollyfills loaded only when necessary
 3.  [Webpack dev server + Hot reload](#webpack-dev-server--hot-reload)
     1. Skipping some loaders for development build
+    2. Support for SPA routing
 4.  [Sass](#sass)
     1.  Typings for styles
 5.  [Linters + Formatter](#linters--formatter)
