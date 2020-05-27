@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const PolyfillInjectorPlugin = require("webpack-polyfill-injector");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 const webpack = require("webpack");
 
 const fileName = (extension, dev) => {
@@ -18,7 +20,13 @@ const getPlugins = (dev) => {
             filename: fileName("css", dev),
             chunkFilename: fileName("css", dev),
         }),
-        new HtmlWebpackPlugin({ template: "index.html" }),
+        new HtmlWebpackPlugin({
+            template: "index.html",
+        }),
+        new FaviconsWebpackPlugin({
+            logo: path.resolve(__dirname, "src/resources/icons/react.svg"),
+            prefix: "favicon/",
+        }),
         new webpack.WatchIgnorePlugin([/\.d\.ts$/]),
         new PolyfillInjectorPlugin({
             singleFile: true,
@@ -104,12 +112,14 @@ const getModuleRules = (dev) => {
             ],
         },
         {
-            test: /\.(png|jpe?g|gif)$/i,
+            test: /\.(png|jpe?g|gif|ico)$/i,
             use: [
                 {
                     loader: "file-loader",
                     options: {
-                        publicPath: "assets",
+                        limit: 1,
+                        name: "[name].[ext]",
+                        outputPath: "assets",
                     },
                 },
             ],
