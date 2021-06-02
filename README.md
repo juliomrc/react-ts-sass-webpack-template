@@ -27,12 +27,6 @@ Although I don't need to know everything that is underneeth my solution, I want 
     1. Stylelint
     2. Prettier integrated with ESLint
 
-## TODO List:
-
--   README.md
-
----
-
 ## React + Typescript
 
 I believe typescript isn't just usefull. It is essencial.
