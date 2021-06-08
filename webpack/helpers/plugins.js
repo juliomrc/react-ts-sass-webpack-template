@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const PolyfillInjectorPlugin = require("webpack-polyfill-injector");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -8,9 +10,8 @@ const path = require("path");
 const webpack = require("webpack");
 const fileName = require("./fileName");
 
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-module.exports = (isDevelopment) => {
+module.exports = (isDevelopment, isHotDevelopment) => {
     const plugins = [
         new MiniCssExtractPlugin({
             filename: fileName("css", isDevelopment),
@@ -23,7 +24,6 @@ module.exports = (isDevelopment) => {
             logo: path.resolve("src/resources/icons/react.svg"),
             prefix: "favicon/",
         }),
-        new webpack.WatchIgnorePlugin([/\.d\.ts$/]),
         new PolyfillInjectorPlugin({
             singleFile: true,
             polyfills: [
@@ -43,11 +43,17 @@ module.exports = (isDevelopment) => {
 
     if (isDevelopment) {
         plugins.push(
+            new webpack.WatchIgnorePlugin({ paths: [/\.d\.ts$/] }),
             new webpack.SourceMapDevToolPlugin({
                 filename: "[file].map",
                 exclude: [/vendors.*.*/, /polyfills.*/, /runtime.*/],
             }),
+            // new BundleAnalyzerPlugin(),
         );
+
+        if (isHotDevelopment) {
+            plugins.push(new ReactRefreshWebpackPlugin());
+        }
     } else {
         plugins.push(new StylelintPlugin());
     }

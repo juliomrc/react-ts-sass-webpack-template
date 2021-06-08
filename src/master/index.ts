@@ -1,2 +1,1 @@
-import Master from "./master";
-export default Master;
+export * from "./master";

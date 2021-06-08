@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const getJsTsLoaders = (isDevelopment) => {
+const getJsTsLoaders = (isDevelopment, isHotDevelopment) => {
     const jsTsLoaders = isDevelopment
-        ? [{ loader: "babel-loader" }]
+        ? [{
+            loader: 'babel-loader',
+            options: { plugins: [isHotDevelopment && 'react-refresh/babel'].filter(Boolean) }
+        }]
         : [{ loader: "babel-loader" }, "eslint-loader"];
 
     return {
@@ -13,15 +16,12 @@ const getJsTsLoaders = (isDevelopment) => {
     };
 };
 
-const styleLoaders = (isDevelopment) => ({
+const styleLoaders = {
     test: /\.(scss|sass|css)$/,
     exclude: /node_modules/,
-    loaders: [
+    use: [
         {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-                hmr: isDevelopment ? true : false,
-            },
         },
         {
             loader: "@teamsupercell/typings-for-css-modules-loader",
@@ -39,7 +39,7 @@ const styleLoaders = (isDevelopment) => ({
         },
         "sass-loader",
     ],
-});
+};
 
 const fontLoaders = {
     test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
@@ -91,7 +91,7 @@ const getModuleLoaders = (isDevelopment) => {
             ...getJsTsLoaders(isDevelopment),
         },
         {
-            ...styleLoaders(isDevelopment),
+            ...styleLoaders,
         },
         {
             ...fontLoaders,

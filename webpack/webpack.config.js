@@ -6,11 +6,13 @@ const fileName = require("./helpers/fileName");
 const alias = require("./helpers/alias");
 const getPlugins = require("./helpers/plugins");
 const loaders = require("./helpers/loaders");
+const optimization = require("./helpers/optimization");
 
 const relativePathToRoot = "../.";
 
-module.exports = (env) => {
-    const isDevelopment = env === "dev";
+module.exports = (config) => {
+    const isDevelopment = config.dev;
+    const isHotDevelopment = config.WEBPACK_SERVE;
     const publicPath = "/";
 
     return {
@@ -35,8 +37,10 @@ module.exports = (env) => {
             extensions: [".js", ".ts", ".tsx"],
             alias,
         },
-        optimization: { runtimeChunk: "single" },
-        plugins: getPlugins(isDevelopment),
-        module: { rules: loaders.getModuleLoaders(isDevelopment) },
+        optimization,
+        plugins: getPlugins(isDevelopment, isHotDevelopment),
+        module: {
+            rules: loaders.getModuleLoaders(isDevelopment, isHotDevelopment),
+        },
     };
 };

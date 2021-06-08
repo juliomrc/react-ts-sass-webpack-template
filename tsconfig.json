@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "sourceMap": true,
+        "noEmit": true,
         "isolatedModules": true,
         "module": "commonjs",
         "target": "es6",
