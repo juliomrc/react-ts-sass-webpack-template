@@ -13,10 +13,7 @@ const fileName = require("./fileName");
 
 module.exports = (isDevelopment, isHotDevelopment) => {
     const plugins = [
-        new MiniCssExtractPlugin({
-            filename: fileName("css", isDevelopment),
-            chunkFilename: fileName("css", isDevelopment),
-        }),
+        new MiniCssExtractPlugin({ filename: fileName("css", isDevelopment) }),
         new HtmlWebpackPlugin({
             template: "index.html",
         }),
@@ -43,7 +40,6 @@ module.exports = (isDevelopment, isHotDevelopment) => {
 
     if (isDevelopment) {
         plugins.push(
-            new webpack.WatchIgnorePlugin({ paths: [/\.d\.ts$/] }),
             new webpack.SourceMapDevToolPlugin({
                 filename: "[file].map",
                 exclude: [/vendors.*.*/, /polyfills.*/, /runtime.*/],
@@ -52,7 +48,10 @@ module.exports = (isDevelopment, isHotDevelopment) => {
         );
 
         if (isHotDevelopment) {
-            plugins.push(new ReactRefreshWebpackPlugin());
+            plugins.push(
+                new ReactRefreshWebpackPlugin(),
+                new webpack.WatchIgnorePlugin({ paths: [/\.d\.ts$/] }),
+            );
         }
     } else {
         plugins.push(new StylelintPlugin());

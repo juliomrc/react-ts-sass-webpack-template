@@ -40,7 +40,7 @@ module.exports = (config) => {
         optimization,
         plugins: getPlugins(isDevelopment, isHotDevelopment),
         module: {
-            rules: loaders.getModuleLoaders(isDevelopment, isHotDevelopment),
+            rules: loaders.getModuleLoaders(isHotDevelopment),
         },
     };
 };

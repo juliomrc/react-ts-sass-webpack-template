@@ -1,5 +1,11 @@
 # react-typescript-webpack-sass-template
 
+## Motivation
+
+Although I don't need to know everything that is underneath my solution, I want to know which pieces are used where and why. To achieve that, there is no better way than assembling this whole template myself.
+
+---
+
 ## Changelog
 
 ### Update to webpack@5
@@ -10,13 +16,9 @@
     -   Missing font loaders;
     -   Missing type-checking before build
     -   Run scripts in parallel to save build time
--   Updated all libraries to latest stable version
+-   Updated most libraries to latest stable version
 
 ---
-
-## Motivation
-
-Although I don't need to know everything that is underneath my solution, I want to know which pieces are used where and why. To achieve that, there is no better way than assembling this whole template myself.
 
 ## Features
 
@@ -85,7 +87,7 @@ Not having to build your whole application after every change, no matter how sma
 
 When developing a first draft for some component, I don't want to be forced to define types for everything because I know I am still changing them all the time. It is nice that my editor keeps telling me it is wrong and I can't forget about it, but it isn't nice that my application won't build and let me see this first draft in the browser. Therefore, `tsc` will only be ran for builds, not for the `devServer`.
 
-To help speed up development even more, `eslint-loader` and `styleLintPlugin` are only enabled for PRD build.
+To help speed up development even more, `eslint-webpack-plugin` and `styleLintPlugin` are only enabled for PRD build.
 
 **Plugins and loaders used only for development**
 
