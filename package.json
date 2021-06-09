@@ -5,6 +5,7 @@
     "private": true,
     "license": "ISC",
     "scripts": {
+        "prepare": "husky install",
         "start-dev": "webpack serve --hot --env dev",
         "clean-dist": "rimraf dist",
         "build-dev": "npm-run-all -p -r clean-dist && tsc && webpack --env dev",
