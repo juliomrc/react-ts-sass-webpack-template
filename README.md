@@ -42,7 +42,7 @@ Although I don't need to know everything that is underneath my solution, I want 
     2.  Css-modules
 5.  [Linters + Formatter](#linters--formatter)
     1. Stylelint
-    2. Prettier integrated with ESLint
+    2. Prettier integrated with ESLint + Husky & lint-staged
 6.  [Jest + @testing-library](#Tests)
 
 ## React + Typescript
