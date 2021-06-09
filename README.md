@@ -35,13 +35,15 @@ Although I don't need to know everything that is underneath my solution, I want 
         2. PRD bundle caching
         3. Pollyfills loaded only when necessary
 3.  [Webpack dev server + Hot reload](#webpack-dev-server--hot-reload)
-    1. Skipping some loaders for development build
+    1. Skipping some loaders/plugins for development build
     2. Support for SPA routing
 4.  [Sass](#sass)
     1.  Typings for styles
+    2.  Css-modules
 5.  [Linters + Formatter](#linters--formatter)
     1. Stylelint
     2. Prettier integrated with ESLint
+6.  [Jest + @testing-library](#Tests)
 
 ## React + Typescript
 
@@ -121,3 +123,7 @@ Regarding linters, TSLint is being deprecated in favor of ESLint and I am not aw
 Regarding a formatter, I only used VSCode default formatter professionally. However, Prettier is pretty popular, has plenty of support and is easy to integrate with ESLint, which saves plenty of development time (automation is wonderful).
 
 Prettier is integrated with esLint so that auto formatting a file will never collide with esLint rules. Also, when formatting a file, auto fixable problems should be automatically formatted.
+
+## Tests
+
+Nowadays it is unthinkable of shipping untested code. `jest` + `@testing-library` is easy, intuitive and mine and most developers' favorite.

@@ -3,15 +3,28 @@
         "noEmit": true,
         "isolatedModules": true,
         "module": "commonjs",
-        "target": "es6",
+        "target": "es5",
         "jsx": "react",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "baseUrl": "./",
+
+        "strict": true,
+        "noUnusedLocals": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedParameters": true,
+
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
         "paths": {
             "@components/*": ["./src/components/*"],
             "@resources/*": ["./src/resources/*"]
-        },
-        "noImplicitAny": true,
-        "strict": true
-    }
+        }
+    },
+    "exclude": ["node_modules", "dist"]
 }
