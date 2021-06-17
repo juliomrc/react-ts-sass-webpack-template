@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const PolyfillInjectorPlugin = require("webpack-polyfill-injector");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 const fileName = require("./fileName");
-
 
 module.exports = (isDevelopment, isHotDevelopment) => {
     const plugins = [
@@ -54,7 +54,7 @@ module.exports = (isDevelopment, isHotDevelopment) => {
             );
         }
     } else {
-        plugins.push(new StylelintPlugin());
+        plugins.push(new StylelintPlugin(), new ESLintPlugin());
     }
 
     return plugins;

@@ -6,8 +6,12 @@ const getJsTsLoaders = (isHotDevelopment) => {
         test: /\.(js|ts(x?))$/,
         exclude: /node_modules/,
         use: {
-            loader: 'babel-loader',
-            options: { plugins: [isHotDevelopment && 'react-refresh/babel'].filter(Boolean) }
+            loader: "babel-loader",
+            options: {
+                plugins: [isHotDevelopment && "react-refresh/babel"].filter(
+                    Boolean,
+                ),
+            },
         },
     };
 };
@@ -41,17 +45,13 @@ const assetLoaders = {
     type: "asset",
 };
 
-
 const svgLoaders = {
     test: /\.svg$/,
     use: [
         {
-            loader: "babel-loader",
-        },
-        {
-            loader: "react-svg-loader",
+            loader: "@svgr/webpack",
             options: {
-                jsx: true,
+                dimensions: false,
             },
         },
     ],
